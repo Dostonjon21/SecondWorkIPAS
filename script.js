@@ -1,5 +1,5 @@
  const getPhotoData = () => {
-            fetch('https://jsonplaceholder.typicode.com/photos/1')
+            fetch('https://jsonplaceholder.typicode.com/photos/2')
                 .then(response => response.json())
                 .then(data => {
                     const container = document.getElementById('photo-box');
