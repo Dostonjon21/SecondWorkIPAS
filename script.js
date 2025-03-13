@@ -1,5 +1,5 @@
 'use strict'
-const getCountryData = () => {
+const Img = () => {
     const request = new XMLHttpRequest();
     request.open('GET', 'https://jsonplaceholder.typicode.com/photos');
     request.send();
@@ -13,4 +13,4 @@ const getCountryData = () => {
 };
 
 
-getCountryData();
+Img();
