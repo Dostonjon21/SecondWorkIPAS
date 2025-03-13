@@ -17,22 +17,17 @@
 
 
 
-// const getPhotoData = () => {
-//     fetch('https://jsonplaceholder.typicode.com/photos/2')
-//         .then(response => response.json())
-//         .then(data => {
-//             const container = document.getElementById('photo-box');
-//             container.innerHTML = `
-//                 <img src="${data.url}" alt="${data.title}">
-//                 <h3>${data.title}</h3>
-//             `;
-//         })
-//         .catch(error => {
-//             console.error('Error fetching data:', error);
-//         });
-// };
+const req = new XMLHttpRequest();
+req.open('GET', 'https://jsonplaceholder.typicode.com/photos/2', true);
 
-// getPhotoData();
+req.onreadystatechange = () =>  
+    req.readyState - 4 || req.status - 200 || (  
+        document.getElementById('photo-box').innerHTML =
+        '<img src="' + (data = JSON.parse(req.responseText)).url + 
+        '" alt="' + data.title + '"><h3>' + data.title + '</h3>'
+    );
+
+req.send();
 
 
 
@@ -40,25 +35,4 @@
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const getPhotoData = () => {
-        fetch('https://jsonplaceholder.typicode.com/photos/2')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('photo-box');
-                if (container) {
-                    container.innerHTML = `
-                        <img src="${data.url}" alt="${data.title}" style="max-width: 100%; height: auto;">
-                        <h3>${data.title}</h3>
-                    `;
-                } else {
-                    console.error("Element topilmadi!");
-                }
-            })
-            .catch(error => {
-                console.error('Xatolik yuz berdi:', error);
-            });
-    };
 
-    getPhotoData();
-});
