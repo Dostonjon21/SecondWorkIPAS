@@ -18,7 +18,7 @@
 
 
 const req = new XMLHttpRequest();
-req.open('GET', 'https://jsonplaceholder.typicode.com/photos/2', true);
+req.open('GET', 'https://jsonplaceholder.typicode.com/photos/2' );
 
 req.onreadystatechange = () =>  
     req.readyState - 4 || req.status - 200 || (  
