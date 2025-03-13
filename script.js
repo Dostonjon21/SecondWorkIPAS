@@ -1,16 +1,16 @@
-'use strict'
-const Img = () => {
-    const request = new XMLHttpRequest();
-    request.open('GET', 'https://jsonplaceholder.typicode.com/photos');
-    request.send();
+ const getPhotoData = () => {
+            fetch('https://jsonplaceholder.typicode.com/photos/1')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('photo-box');
+                    container.innerHTML = `
+                        <img src="${data.url}" alt="${data.title}">
+                        <h3>${data.title}</h3>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        };
 
-    request.addEventListener('load', function () {
-        const data = JSON.parse(this.responseText);
-        console.log(' :', data);
-
-       
-    });
-};
-
-
-Img();
+        getPhotoData();
