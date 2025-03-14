@@ -25,8 +25,7 @@ req.onreadystatechange = () =>
         document.getElementById('photo-box').innerHTML =
         '<img src="' + (data = JSON.parse(req.responseText)).url + 
         '" alt="' + data.title + '"><h3>' + data.title + '</h3>'
-    );
-
+);
 req.send();
 
 
